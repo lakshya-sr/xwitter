@@ -5,7 +5,8 @@ from werkzeug.utils import secure_filename
 from datetime import datetime
 import os
 import json
-from datetime import timedelta
+from datetime import timedelta, datetime
+import pickle
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'  # change this in production!
@@ -15,6 +16,7 @@ app.permanent_session_lifetime = timedelta(days=1)
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 USER_FILE = 'users.json'
+# POST_FILE = 'posts.json'
 
 posts = []
 post_id_counter = 1
@@ -29,6 +31,19 @@ else:
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+"""
+def save_posts():
+    with open(POST_FILE, 'w') as f:
+        json.dump([post.update({'timestamp':post['timestamp'].isoformat()}) for post in posts], f)
+
+def load_posts():
+    try:
+        with open(POST_FILE, 'r') as f:    
+            posts = [post.update({'timestamp':datetime.fromisoformat(post['timestamp'])}) for post in json.load(f)]
+            posts_id_counter = posts[0]['id'] + 1
+    except:
+        posts = []
+"""
 
 def save_users():
     with open(USER_FILE, 'w') as f:
@@ -101,6 +116,8 @@ def create():
         }
         post_id_counter += 1
         posts.insert(0, post)
+        print(post)
+        # save_posts()
         return redirect(url_for('index'))
 
     return render_template('create.html', user=session.get('user'))
@@ -113,4 +130,5 @@ def like_post(post_id):
             break
     return redirect(url_for('index'))
 if __name__ == "__main__":
+    # load_posts()
     app.run(debug=True)
