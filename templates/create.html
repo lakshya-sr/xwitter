@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+{% block title %}Create Post - Mini Twitter{% endblock %}
+
+{% block content %}
+<section aria-label="Create a new post">
+  <h2>Create a New Post</h2>
+  <form action="{{ url_for('create') }}" method="post" enctype="multipart/form-data">
+    <label for="content">Your Post</label>
+    <textarea id="content" name="content" rows="4" required></textarea>
+
+    <label for="image">Optional Image</label>
+    <input type="file" id="image" name="image" accept="image/*" />
+
+    <button type="submit">Post</button>
+  </form>
+</section>
+{% endblock %}
+

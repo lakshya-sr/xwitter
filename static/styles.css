@@ -1,0 +1,111 @@
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f5f8fa;
+  color: #14171a;
+}
+
+header, nav, main, footer {
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+}
+
+header {
+  background-color: #1da1f2;
+  color: white;
+  text-align: center;
+  border-bottom: 2px solid #ccc;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  margin-top: 2rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: #657786;
+  font-size: 0.9rem;
+}
+
+article {
+  background-color: white;
+  border: 1px solid #e1e8ed;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+article time {
+  font-size: 0.85rem;
+  color: #657786;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+  padding: 0.5rem;
+  border: 1px solid #ccd6dd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1991da;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+
+form button {
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #1991da;
+}
