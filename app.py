@@ -34,9 +34,12 @@ def save_users():
     with open(USER_FILE, 'w') as f:
         json.dump(users, f)
 
+def recommend_posts():
+    return posts
+
 @app.route('/')
 def index():
-    return render_template('index.html', posts=posts, user=session.get('user'))
+    return render_template('index.html', posts=recommend_posts(), user=session.get('user'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
